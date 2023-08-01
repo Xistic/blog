@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'css/my_note.css' %}>
+    <script src="{% static 'js/index.js'%}" type="module"></script>
+    <title>Мои заметки</title>
+</head>
+<body >
+    <div class="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <header>
+        <section class="top_bar">
+            <div>
+                <h1 class="top_LOGO">mini Blog</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href = "{% url 'main_page' %}">MAIN</a></li>
+                    <li><a href = "{% url 'notes_page' %}">NOTES</a></li>
+                    <li><a href = "{% url 'resume_page' %}">RESUME</a></li>
+                    <!-- <li><a href = "{% url 'roadmap_page' %}">ROADMAP</a></li> -->
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main> 
+        <section class="container" style="overflow-x: hidden;">
+            {% if note_list %}
+                {% for note in note_list %}
+                    <section class="item">
+                        <h1>{{ note.title }}</h1>
+                        <p>{{ note.description }}</p>
+                        <h3>{{ note.date }}</h3>
+                    </section>
+                {% endfor %}
+            {% else %}
+                <p>No notes available.</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
