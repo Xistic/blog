@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/resume.css' %}">
+    <script src= {% static 'js/index.js' %} type="module"></script>
+    <title>Резюме</title>
+</head>
+<body >
+    <div class="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <header>
+        <section class="top_bar">
+            <div>
+                <h1 class="top_LOGO">mini Blog</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href = "{% url 'main_page' %}">MAIN</a></li>
+                    <li><a href = "{% url 'notes_page' %}">NOTES</a></li>
+                    <li><a href = "{% url 'resume_page' %}">RESUME</a></li>
+                    <!-- <li><a href = "{% url 'roadmap_page' %}">ROADMAP</a></li> -->
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main> 
+        <section class="resume_list">
+            <section class="info_about_me">
+                <section class="FIO">
+                    <h1><a>{{ resume.0.first_name}} {{ resume.0.last_name}}</a></h1>  
+                </section>
+                <section class="age">
+                    <h2>Age: <a>{{ resume.0.age}} </a></h2>
+                </section>
+                <section class="number">
+                    <h2>Телефон: <a> {{ resume.0.number}} </a></h2>
+                </section>
+                <section class="mail">
+                    <h2>Почта: <a> {{ resume.0.email}} </a></h2>
+                </section>
+                <section class="mail">
+                    <h2>GitHub: <a href="https://github.com/Xistic"> github.com/Xistic </a></h2>
+                </section>
+                <section class="country">
+                    <h2>Страна: <a>{{ resume.0.country}}</a> Город: <a>{{ resume.0.city}} </a></h2>
+                </section>
+            </section>
+            <section class="photo">
+                <img src="{% static 'img/my_photo.png' %}">
+            </section>
+        </section>
+        <section class="resume_list">
+            <section class="skills">
+                <h1>Опыт:</h1>
+                <p>Участвовал в Хакатонах Ростова и Таганрога, также Хакатонах 
+                    региональных(Краснодарский край). Занимал призовые места в 
+                    Ростовских Хакатонах
+                    Образование: Учусь на 4 курсе Прикладной информатики ИУБиП. На 2 
+                    курсе проходил стажировку в RNDSoft, на стажировке подтянул вёрстку 
+                    и работал с системой контроля версий (HTML, CSS, Git) Работали по 
+                    системе KANBAN.
+                    Python: nltk, tenserflow, speechrecognition, 
+                    pytelegrambotapi (Работал во время Хакатонов)
+                    Photoshop, Blender 
+                    На данный момент изучаю Java/Kotlin/Android Studio
+                    </p>
+            </section>
+        </section>
+        <section class="resume_list">
+            <section class="skills">
+                <h1>Образование:</h1>
+                <p>Учусь на 4 курсе Прикладной информатики ИУБиП. На 2 
+                    курсе проходил стажировку в RNDSoft, на стажировке подтянул вёрстку 
+                    и работал с системой контроля версий (HTML, CSS, Git) Работали по 
+                    системе KANBAN.
+                    Python: nltk, tenserflow, speechrecognition, 
+                    pytelegrambotapi (Работал во время Хакатонов)
+                    Photoshop, Blender 
+                    На данный момент изучаю Java/Kotlin/Android Studio
+                    </p>
+            </section>
+        </section>
+        <section class="resume_list">
+            <section class="skills">
+                <h1>Навыкии:</h1>
+                <p>
+                    Python: nltk, tenserflow, speechrecognition, 
+                    pytelegrambotapi (Работал во время Хакатонов)
+                    Photoshop, Blender 
+                    На данный момент изучаю Java/Kotlin/Android Studio
+                    </p>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
